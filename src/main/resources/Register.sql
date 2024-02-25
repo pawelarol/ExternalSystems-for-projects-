@@ -5,7 +5,8 @@ DROP TABLE IF EXISTS cr_street;
 DROP TABLE IF EXISTS cr_district;
 
 
-CREATE TABLE cr_district (
+CREATE TABLE cr_district
+  (
     district_code integer not null,
     district_name varchar(300),
     PRIMARY KEY (district_code)
@@ -26,7 +27,8 @@ INSERT INTO cr_street (street_code, street_name)
 VALUES (1, 'Сампсоньевский проспект');
 
 
-CREATE TABLE cr_address (
+CREATE TABLE cr_address
+  (
     address_id SERIAL,
     district_code integer not null,
     street_code integer not null,
@@ -44,7 +46,8 @@ INSERT INTO cr_address (district_code, street_code, building, extension, apartme
 VALUES (1, 1, '271', null, '4');
 
 
-CREATE TABLE cr_person (
+CREATE TABLE cr_person
+  (
     person_id SERIAL,
     sur_name varchar(100) not null,
     given_name varchar(100) not null,
@@ -77,7 +80,8 @@ passport_seria, passport_number, passport_date, certificate_number, certificate_
 VALUES ('Васильев', 'Александр', 'Павлович', '2018-10-24', null, null, null, '321654', '2018-11-09');
 
 
-CREATE TABLE cr_address_person (
+CREATE TABLE cr_address_person
+  (
     person_address_id SERIAL,
     address_id integer not null,
     person_id integer not null,

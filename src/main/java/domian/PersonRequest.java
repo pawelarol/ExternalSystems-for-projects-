@@ -7,10 +7,19 @@ public class PersonRequest {
     private String givenName;
     private String patronymic;
     private LocalDate dateOfBirth;
+    private int streetCode;
     private String building;
     private String extension;
     private String apartment;
 
+
+    public int getStreetCode() {
+        return streetCode;
+    }
+
+    public void setStreetCode(int streetCode) {
+        this.streetCode = streetCode;
+    }
 
     public String getGivenName() {
         return givenName;
