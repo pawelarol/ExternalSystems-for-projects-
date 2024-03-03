@@ -1,5 +1,6 @@
-package Dao;
+package edu.javaLessons.Dao;
 
+import Dao.PersonCheckDao;
 import Exceptions.CheckPersonException;
 import domian.PersonRequest;
 import domian.PersonResponse;
