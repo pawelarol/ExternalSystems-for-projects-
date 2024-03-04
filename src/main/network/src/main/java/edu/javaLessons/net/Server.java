@@ -8,29 +8,51 @@ public class Server {
     public static void main(String[] args) throws IOException {
         ServerSocket socket = new ServerSocket(25225);
         System.out.println("Server is started");
-        while(true){
+        while (true) {
             Socket client = socket.accept();
-            handleRequest(client);
+            new SimpleServer(client).start();
+        }
         }
     }
 
-    private static void handleRequest(Socket client) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(client.getInputStream()));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
 
-        StringBuilder sb = new StringBuilder("Helo, ");
-        String userName = br.readLine();
-        System.out.println("Server got string: " + userName);
-        sb.append(userName);
+    class SimpleServer extends Thread {
 
-        bw.write(sb.toString());
-        bw.newLine();
-        bw.flush();
+        private Socket client;
 
-        br.close();
-        bw.close();
+        public SimpleServer(Socket client){
+            this.client = client;
+        }
 
-        client.close();
+        public void run() {
 
+            try {
+                handleRequest(client);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        public void handleRequest(Socket client) throws IOException {
+            try {
+                BufferedReader br = new BufferedReader(new InputStreamReader(client.getInputStream()));
+                BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
+
+                StringBuilder sb = new StringBuilder("Hello, ");
+                String userName = br.readLine();
+                sb.append(userName);
+
+                bw.write(sb.toString());
+                bw.newLine();
+                bw.flush();
+
+                br.close();
+                bw.close();
+
+                client.close();
+
+            } catch (IOException ex) {
+                ex.printStackTrace(System.out);
+            }
+        }
     }
-}
+
