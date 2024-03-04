@@ -1,4 +1,4 @@
-package Exceptions;
+package edu.javaLessons.City;
 
 public class CheckPersonException extends Exception{
 

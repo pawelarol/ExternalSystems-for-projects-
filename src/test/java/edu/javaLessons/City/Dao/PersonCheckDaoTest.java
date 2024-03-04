@@ -1,15 +1,12 @@
-package edu.javaLessons.Dao;
+package edu.javaLessons.City.Dao;
 
-import Dao.PersonCheckDao;
-import Exceptions.CheckPersonException;
-import domian.PersonRequest;
-import domian.PersonResponse;
+import edu.javaLessons.City.CheckPersonException;
+import edu.javaLessons.City.domian.PersonRequest;
+import edu.javaLessons.City.domian.PersonResponse;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDate;
-
-import static org.junit.Assert.*;
 
 public class PersonCheckDaoTest {
 

@@ -1,4 +1,4 @@
-package edu.javaLessons.net;
+package edu.javaLessons.City.net;
 
 import org.junit.Test;
 

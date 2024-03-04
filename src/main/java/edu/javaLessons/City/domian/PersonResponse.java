@@ -1,4 +1,4 @@
-package domian;
+package edu.javaLessons.City.domian;
 
 public class PersonResponse {
 

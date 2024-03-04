@@ -1,8 +1,8 @@
-package Dao;
+package edu.javaLessons.City.Dao;
 
-import Exceptions.CheckPersonException;
-import domian.PersonRequest;
-import domian.PersonResponse;
+import edu.javaLessons.City.CheckPersonException;
+import edu.javaLessons.City.domian.PersonRequest;
+import edu.javaLessons.City.domian.PersonResponse;
 
 import java.sql.*;
 
