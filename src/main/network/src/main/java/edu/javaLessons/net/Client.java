@@ -3,18 +3,25 @@ package edu.javaLessons.net;
 import java.io.*;
 import java.net.Socket;
 import java.time.LocalDateTime;
-import java.util.SimpleTimeZone;
 
 public class Client {
     public static void main(String[] args) throws IOException, InterruptedException {
-        for (int i = 0; i < 10; i++) {
-            SimpleClient sc = new SimpleClient();
+        for (int i = 0; i < 5; i++) {
+            SimpleClient sc = new SimpleClient(i);
             sc.start();
         }
        }
     }
 
         class SimpleClient extends Thread {
+
+    private static final String[] COMMAND = {"HELLO", "MORNING", "EVENING", "DAY"};
+
+    private int cmtNumber;
+
+    public SimpleClient(int cmtNumber){
+        this.cmtNumber = cmtNumber;
+    }
             public void run() {
                 try {
                     System.out.println("Thread is starter " + LocalDateTime.now());
@@ -22,16 +29,16 @@ public class Client {
                     BufferedReader bf = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
-                    String sb = "Pavel";
+                    String command = COMMAND[cmtNumber % COMMAND.length];
+
+                    String sb = command + " " + "Pavel";
                     bw.write(sb);
                     bw.newLine();
                     bw.flush();
 
-                    String answer = bf.readLine();
-                    System.out.println(answer);
 
-                    System.out.print("Thread is finished:  " + LocalDateTime.now());
-                    System.out.println();
+                    String answer = bf.readLine();
+                    System.out.println("Client got string:" + answer);
 
                     bf.close();
                     bw.close();
