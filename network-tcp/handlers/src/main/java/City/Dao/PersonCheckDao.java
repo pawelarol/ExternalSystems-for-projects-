@@ -1,8 +1,8 @@
-package edu.javaLessons.City.Dao;
+package City.Dao;
 
-import edu.javaLessons.City.CheckPersonException;
-import edu.javaLessons.City.domian.PersonRequest;
-import edu.javaLessons.City.domian.PersonResponse;
+import City.Exceptions.CheckPersonException;
+import City.domian.PersonRequest;
+import City.domian.PersonResponse;
 
 import java.sql.*;
 
@@ -20,7 +20,7 @@ public class PersonCheckDao {
             "    a.street_code = ? AND \n" +
             "    UPPER(a.building COLLATE \"C\") = UPPER(? COLLATE \"C\") " ;
 
-    public PersonResponse checkPerson(PersonRequest request) throws CheckPersonException{
+    public PersonResponse checkPerson(PersonRequest request) throws CheckPersonException {
         PersonResponse response =  new PersonResponse();
 
             String sql = SQL_REQUEST;

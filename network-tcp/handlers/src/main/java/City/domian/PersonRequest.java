@@ -1,4 +1,4 @@
-package edu.javaLessons.City.domian;
+package City.domian;
 
 import java.time.LocalDate;
 
