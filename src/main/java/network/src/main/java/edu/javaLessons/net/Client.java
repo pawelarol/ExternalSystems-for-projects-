@@ -1,4 +1,4 @@
-package edu.javaLessons.net;
+package network.src.main.java.edu.javaLessons.net;
 
 import java.io.*;
 import java.net.Socket;

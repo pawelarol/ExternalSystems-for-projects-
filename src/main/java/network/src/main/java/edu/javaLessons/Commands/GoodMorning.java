@@ -1,4 +1,4 @@
-package edu.javaLessons.Commands;
+package network.src.main.java.edu.javaLessons.Commands;
 
 public class GoodMorning  extends Greetable {
     @Override

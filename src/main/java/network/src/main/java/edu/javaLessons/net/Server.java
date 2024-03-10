@@ -1,9 +1,8 @@
-package edu.javaLessons.net;
+package network.src.main.java.edu.javaLessons.net;
 
-import edu.javaLessons.Commands.Greetable;
+import network.src.main.java.edu.javaLessons.Commands.Greetable;
 
 import java.io.*;
-import java.lang.reflect.Constructor;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
@@ -36,7 +35,6 @@ public class Server {
                 Class<Greetable> cl = (Class<Greetable>) Class.forName(className);
                 Greetable handler  = cl.getConstructor().newInstance();
                 result.put(command.toString(), handler);
-
 
             }
 
