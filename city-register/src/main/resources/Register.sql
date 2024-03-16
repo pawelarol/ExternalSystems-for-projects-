@@ -66,6 +66,10 @@ passport_seria, passport_number, passport_date, certificate_number, certificate_
 VALUES ('Васильев', 'Павел', 'Николаевич', '1995-03-18', '1234', '123456', '2015-04-11',
 null, null);
 
+INSERT INTO cr_person (sur_name, given_name, patronymic, date_of_birth, passport_seria,
+ passport_number, passport_date, certificate_number, certificate_date)
+ VALUES ('Arol','Pavel', 'Sergeevich', '1998-07-12', '1211', '4342332', '2023-05-24', null, null);
+
 INSERT INTO cr_person (sur_name, given_name, patronymic, date_of_birth,
 passport_seria, passport_number, passport_date, certificate_number, certificate_date)
 VALUES ('Васильева', 'Ирина', 'Петровна', '1997-08-21', '4321', '654321', '2017-09-19',

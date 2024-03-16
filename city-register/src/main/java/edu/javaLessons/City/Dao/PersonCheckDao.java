@@ -20,6 +20,14 @@ public class PersonCheckDao {
             "    a.street_code = ? AND \n" +
             "    UPPER(a.building COLLATE \"C\") = UPPER(? COLLATE \"C\") " ;
 
+ public PersonCheckDao(){
+     try{
+        Class.forName("org.postgresql.Driver");
+     }catch (Exception e){
+         e.printStackTrace();
+     }
+ }
+
     public PersonResponse checkPerson(PersonRequest request) throws CheckPersonException{
         PersonResponse response =  new PersonResponse();
 

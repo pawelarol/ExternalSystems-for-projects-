@@ -32,10 +32,10 @@ public class PersonCheckDaoTest {
     public void checkPerson2() throws CheckPersonException {
 
         PersonRequest pr = new PersonRequest();
-        pr.setSurName("Васильева");
-        pr.setGivenName("Ирина");
-        pr.setPatronymic("Петровна");
-        pr.setDateOfBirth(LocalDate.of(1997, 8, 21));
+        pr.setSurName("Arol");
+        pr.setGivenName("Pavel");
+        pr.setPatronymic("Sergeevich");
+        pr.setDateOfBirth(LocalDate.of(1998, 7, 12));
         pr.setStreetCode(1);
         pr.setBuilding("10");
         pr.setExtension("2");
