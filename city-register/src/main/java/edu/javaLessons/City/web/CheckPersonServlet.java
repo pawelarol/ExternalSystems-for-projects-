@@ -7,6 +7,7 @@ import edu.javaLessons.City.domian.PersonResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,25 +19,30 @@ import java.time.LocalDate;
 public class CheckPersonServlet extends HttpServlet {
 
     private static final Logger logger = LoggerFactory.getLogger(CheckPersonServlet.class);
+
+    private PersonCheckDao dao;
+    @Override
+    public void init() throws ServletException {
+        logger.trace("Servlet is created");
+       dao = new PersonCheckDao();
+    }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
       request.setCharacterEncoding("UTF-8");
-
-      logger.trace("Test");
 
       String surname = request.getParameter("surname");
 
         PersonRequest pr = new PersonRequest();
         pr.setSurName(surname);
-        pr.setGivenName("Pavel");
-        pr.setPatronymic("Sergeevich");
-        pr.setDateOfBirth(LocalDate.of(1998,7,12));
-        pr.setStreetCode(15-161);
-        pr.setBuilding("9");
-        pr.setExtension("1");
-        pr.setApartment("2");
+        pr.setGivenName("Павел");
+        pr.setPatronymic("Николаевич");
+        pr.setDateOfBirth(LocalDate.of(1995,3,18));
+        pr.setStreetCode(1);
+        pr.setBuilding("10");
+        pr.setExtensions("2");
+        pr.setApartment("121");
 
         try {
-            PersonCheckDao dao = new PersonCheckDao();
             PersonResponse ps = dao.checkPerson(pr);
             if(ps.isRegistered()){
                 response.getWriter().write("Registered");

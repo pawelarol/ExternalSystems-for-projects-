@@ -33,10 +33,10 @@ public class PersonCheckDao {
 
             String sql = SQL_REQUEST;
 
-            if(request.getExtension() != null){
-                sql += "and UPPER(a.extension COLLATE \"C\") = UPPER(? COLLATE \"C\") " ;
+            if(request.getExtensions() != null){
+                sql += "and UPPER(a.extensions COLLATE \"C\") = UPPER(? COLLATE \"C\") " ;
             } else {
-                sql += "and extension is null ";
+                sql += "and extensions is null ";
             }
             if(request.getApartment() != null){
                 sql += "and UPPER(a.apartment COLLATE \"C\") = UPPER(? COLLATE \"C\"); ";
@@ -55,8 +55,8 @@ public class PersonCheckDao {
             stmt.setDate(count++, java.sql.Date.valueOf(request.getDateOfBirth()));
             stmt.setInt(count++, request.getStreetCode());
             stmt.setString(count++, request.getBuilding());
-            if(request.getExtension() != null) {
-                stmt.setString(count++, request.getExtension());
+            if(request.getExtensions() != null) {
+                stmt.setString(count++, request.getExtensions());
             }
             if(request.getApartment() != null) {
                 stmt.setString(count, request.getApartment());

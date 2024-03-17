@@ -5,8 +5,7 @@ DROP TABLE IF EXISTS cr_street;
 DROP TABLE IF EXISTS cr_district;
 
 
-CREATE TABLE cr_district
-  (
+CREATE TABLE cr_district (
     district_code integer not null,
     district_name varchar(300),
     PRIMARY KEY (district_code)
@@ -27,8 +26,7 @@ INSERT INTO cr_street (street_code, street_name)
 VALUES (1, 'Сампсоньевский проспект');
 
 
-CREATE TABLE cr_address
-  (
+CREATE TABLE cr_address (
     address_id SERIAL,
     district_code integer not null,
     street_code integer not null,
@@ -43,11 +41,12 @@ CREATE TABLE cr_address
 INSERT INTO cr_address (district_code, street_code, building, extension, apartment)
 VALUES (1, 1, '10', '2', '121');
 INSERT INTO cr_address (district_code, street_code, building, extension, apartment)
+VALUES (15-161, null, '81', '1', '52');
+INSERT INTO cr_address (district_code, street_code, building, extension, apartment)
 VALUES (1, 1, '271', null, '4');
 
 
-CREATE TABLE cr_person
-  (
+CREATE TABLE cr_person (
     person_id SERIAL,
     sur_name varchar(100) not null,
     given_name varchar(100) not null,
@@ -66,9 +65,10 @@ passport_seria, passport_number, passport_date, certificate_number, certificate_
 VALUES ('Васильев', 'Павел', 'Николаевич', '1995-03-18', '1234', '123456', '2015-04-11',
 null, null);
 
-INSERT INTO cr_person (sur_name, given_name, patronymic, date_of_birth, passport_seria,
- passport_number, passport_date, certificate_number, certificate_date)
- VALUES ('Arol','Pavel', 'Sergeevich', '1998-07-12', '1211', '4342332', '2023-05-24', null, null);
+INSERT INTO cr_person (sur_name, given_name, patronymic, date_of_birth,
+passport_seria, passport_number, passport_date, certificate_number, certificate_date)
+VALUES ('Arol', 'Pavel', 'Sergeevich', '1998-07-12', '123', '12456', '2015-05-11',
+null, null);
 
 INSERT INTO cr_person (sur_name, given_name, patronymic, date_of_birth,
 passport_seria, passport_number, passport_date, certificate_number, certificate_date)
@@ -84,8 +84,7 @@ passport_seria, passport_number, passport_date, certificate_number, certificate_
 VALUES ('Васильев', 'Александр', 'Павлович', '2018-10-24', null, null, null, '321654', '2018-11-09');
 
 
-CREATE TABLE cr_address_person
-  (
+CREATE TABLE cr_address_person (
     person_address_id SERIAL,
     address_id integer not null,
     person_id integer not null,
@@ -108,3 +107,6 @@ VALUES (1, 3, '2016-02-05', null);
 
 INSERT INTO cr_address_person (address_id, person_id, start_date, end_date)
 VALUES (1, 4, '2018-12-11', null);
+
+INSERT INTO cr_address_person (address_id, person_id, start_date, end_date)
+VALUES (1, 5, '2019-12-11', null);

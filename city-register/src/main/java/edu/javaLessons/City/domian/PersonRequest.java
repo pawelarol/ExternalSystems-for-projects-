@@ -9,7 +9,7 @@ public class PersonRequest {
     private LocalDate dateOfBirth;
     private int streetCode;
     private String building;
-    private String extension;
+    private String extensions;
     private String apartment;
 
 
@@ -53,12 +53,12 @@ public class PersonRequest {
         this.building = building;
     }
 
-    public String getExtension() {
-        return extension;
+    public String getExtensions() {
+        return extensions;
     }
 
-    public void setExtension(String extension) {
-        this.extension = extension;
+    public void setExtensions(String extensions) {
+        this.extensions = extensions;
     }
 
     public String getApartment() {

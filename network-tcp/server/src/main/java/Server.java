@@ -23,7 +23,7 @@ public class Server {
     private static Map<String, Greetable> loadHendlers() {
         Map<String, Greetable> result = new HashMap<>();
 
-        try(InputStream is = Server.class.getClassLoader().getResourceAsStream("server.properties")){
+        try(InputStream is = Server.class.getClassLoader().getResourceAsStream("city-register/src/main/resources/server.properties")){
 
             Properties properties = new Properties();
             properties.load(is);
