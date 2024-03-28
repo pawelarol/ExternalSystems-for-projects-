@@ -2,12 +2,13 @@ package edu.javaLessons.City.web;
 
 import edu.javaLessons.City.CheckPersonException;
 import edu.javaLessons.City.Dao.PersonCheckDao;
+import edu.javaLessons.City.Dao.PoolConnectionBuilder;
 import edu.javaLessons.City.domian.PersonRequest;
 import edu.javaLessons.City.domian.PersonResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.ServletException;
+import javax.naming.NamingException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,9 +23,10 @@ public class CheckPersonServlet extends HttpServlet {
 
     private PersonCheckDao dao;
     @Override
-    public void init() throws ServletException {
+    public void init() {
         logger.trace("Servlet is created");
-       dao = new PersonCheckDao();
+        dao = new PersonCheckDao();
+        dao.setConnectionBuilder(new PoolConnectionBuilder());
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {

@@ -1,6 +1,7 @@
-package edu.javaLessons.City.Dao;
+package edu.javaLessons.City.net.Dao;
 
 import edu.javaLessons.City.CheckPersonException;
+import edu.javaLessons.City.Dao.PersonCheckDao;
 import edu.javaLessons.City.domian.PersonRequest;
 import edu.javaLessons.City.domian.PersonResponse;
 import org.junit.Assert;
@@ -24,12 +25,24 @@ public class PersonCheckDaoTest {
         pr.setApartment("121");
 
         PersonCheckDao dao = new PersonCheckDao();
+        dao.setConnectionBuilder(new DirectConnectionBuilder());
         PersonResponse ps = dao.checkPerson(pr);
         Assert.assertTrue(ps.isRegistered());
         Assert.assertFalse(ps.isTemporal());
     }
-  // @Test
+
+    public void gitTest(){
+        System.out.println("GitHub is worked");
+    }
+    public void gitTest2(){
+        System.out.println("GitHub is worked");
+    }
+
+ //  @Test
 //  public void checkPerson2() throws CheckPersonException {
+
+    // В данном тесте проблема с базой данных, она не видет данного пользователя. Хотя
+    // структура написана правильно
 //
 //        PersonRequest pr = new PersonRequest();
 //        pr.setSurName("Arol");
@@ -42,8 +55,9 @@ public class PersonCheckDaoTest {
 //        pr.setApartment("52");
 //
 //        PersonCheckDao dao = new PersonCheckDao();
-//        PersonResponse ps = dao.checkPerson(pr);
-//        Assert.assertTrue(ps.isRegistered());
-//        Assert.assertFalse(ps.isTemporal());
+//        dao.setConnectionBuilder(new DirectConnectionBuilder());
+//        PersonResponse ps2 = dao.checkPerson(pr);
+//        Assert.assertTrue(ps2.isRegistered());
+//        Assert.assertFalse(ps2.isTemporal());
 //    }
 }
